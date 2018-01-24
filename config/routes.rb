@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  get '/signup', to: 'user#new'
+  root 'static_pages#home'
+  get '/signup', to: 'users#new'
+
+  post '/signup', to: 'users#create'
 
   get '/help', to: 'static_pages#help'
 
@@ -7,5 +10,6 @@ Rails.application.routes.draw do
 
   get '/contact', to: 'static_pages#contact'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'static_pages#home'
+  resources :users
+  # 这里我把之前控制器users写成了user所以路由器名字也只能用user了
 end
