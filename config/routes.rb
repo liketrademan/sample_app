@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   get '/contact', to: 'static_pages#contact'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users
+  resources :account_activations, only: [:edit]
   # 这里我把之前控制器users写成了user所以路由器名字也只能用user了
 end
